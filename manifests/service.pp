@@ -32,9 +32,11 @@ class kibana4::service {
     ensure     => $kibana4::service_ensure,
     enable     => $kibana4::service_enable,
     name       => $kibana4::service_name,
-    provider   => $kibana4::service_provider,
-    hasstatus  => true,
-    hasrestart => true,
+## let the system decide what provider to use: on rh7 the defaults in
+## this module (see params.pp) do not work
+#    provider   => $kibana4::service_provider,
+#    hasstatus  => true,
+#    hasrestart => true,
     require    => $require,
   }
 
